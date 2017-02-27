@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Advanced boot options</string>
+
+    <string name="rootCheck">rootCheck</string>
+    <string name="singleItem">single item on gridView</string>
+
+    <string-array name="information">
+        <item>soft reboot</item>
+        <item>power off</item>
+        <item>reboot</item>
+        <item>reboot recovery</item>
+        <item>reboot bootloader</item>
+        <item>factory reset</item>
+    </string-array>
+
+    <string-array name="commands">
+        <item>busybox killall system_server</item>
+        <item>reboot -p</item>
+        <item>reboot</item>
+        <item>reboot recovery</item>
+        <item>reboot bootloader</item>
+        <item>recovery wipe cache</item>
+    </string-array>
+
+    <string name="tollbar_title">options</string>
+
+    <string-array name="messages">
+        <item>Quick Reboot the phone?</item>
+        <item>Turn off the phone?</item>
+        <item>Reboot the phone?</item>
+        <item>Reboot into Recovery?</item>
+        <item>Reboot into Bootloader?</item>
+        <item>You are going to perform a Factory Reset. Is it OK?</item>
+    </string-array>
+
+    <string name="softReboot_command">soft reboot</string>
+    <string name="powerOff_command">power off</string>
+    <string name="reboot_command">reboot</string>
+    <string name="rebootRecovery_command">reboot into recovery</string>
+    <string name="rebootBootloader_command">reboot into bootloader</string>
+    <string name="factoryReset_command">factory reset</string>
+
+    <string name="softReboot_message">Quick Reboot the phone?</string>
+    <string name="powerOff_message">Turn off the phone?</string>
+    <string name="reboot_message">Reboot the phone?</string>
+    <string name="rebootRecovery_message">Reboot into Recovery?</string>
+    <string name="rebootBootloader_message">Reboot into Bootloader?</string>
+    <string name="factoryReset_message">You are going to perform a Factory Reset. Is it OK?</string>
+
+</resources>
+

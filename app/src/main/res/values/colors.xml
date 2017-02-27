@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00bcd4</color>
+    <color name="colorPrimaryDark">#0097a7</color>
+    <color name="colorAccent">#c3979f</color>
+    <color name="colorAccent_2">#475b5a</color>
+    <color name="colorAccent_3">#f7f3e3</color>
+    <color name="background">#2f4858</color>
+    <color name="message_round">#aed4e6</color>
+    <color name="message2_background">#ffffff</color>
+    <color name="grey">#BEBEBE</color>
+</resources>
