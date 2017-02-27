@@ -1,0 +1,18 @@
+Advanced Boot Options
+
+This is an android applications, for rooted devices.
+It enables the user to:
+  1. shut down the phone.
+  2. soft reboot the phone - restart OS.
+  3. reboot.
+  4. reboot into recovery - TWRP.
+  5. reboot into bootloader.
+  6. wipe data - factory reset. (not working, currently)
+  
+It Simple to use.
+It is utilized firstly for Huawei P8 Lite: 
+  only TWRP is available as a custom recovery (till now).
+  Huawei's factory reset, not working while phone is rooted.
+  It should work for other devices with TWRP, also.
+  
+It is mostly for personal use.
