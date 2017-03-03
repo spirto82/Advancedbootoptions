@@ -13,11 +13,20 @@ public class ImageAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList<NameWithImage> list;
 
-    public Integer[] mThumbIds = {
-            R.drawable.soft_reboot, R.drawable.power_off, R.drawable.reboot,
-            R.drawable.reboot_recovery, R.drawable.reboot_bootloader, R.drawable.factory_reset
+    public static Integer[] mThumbIdsTrans = {
+            R.drawable.trans_soft_reboot, R.drawable.trans_power_off, R.drawable.trans_reboot,
+            R.drawable.trans_reboot_recovery, R.drawable.trans_reboot_bootloader, /*R.drawable.trans_factory_reset*/
     };
 
+    public static Integer[] mThumbIds = {
+            R.drawable.soft_reboot, R.drawable.power_off, R.drawable.reboot,
+            R.drawable.reboot_recovery, R.drawable.reboot_bootloader, /*R.drawable.factory_reset*/
+    };
+
+    public static Integer[] mThumbIdsPressed = {
+            R.drawable.soft_reboot_pressed, R.drawable.power_off_pressed, R.drawable.reboot_pressed,
+            R.drawable.reboot_recovery_pressed, R.drawable.reboot_bootloader_pressed, /*R.drawable.factory_reset_pressed*/
+    };
 
     public String[] tempInfo;
 
@@ -27,13 +36,13 @@ public class ImageAdapter extends BaseAdapter {
         Resources res = mContext.getResources();
         tempInfo = res.getStringArray(R.array.information);
         for(int i = 0; i <tempInfo.length; i++){
-            NameWithImage tempDateWithImage = new NameWithImage(mThumbIds[i],tempInfo[i]);
+            NameWithImage tempDateWithImage = new NameWithImage(mThumbIdsTrans[i],tempInfo[i]);
             list.add(tempDateWithImage);
         }
     }
 
     public void changeImage(int position, int image){
-        mThumbIds[position] = image;
+        mThumbIdsTrans[position] = image;
     }
 
     @Override

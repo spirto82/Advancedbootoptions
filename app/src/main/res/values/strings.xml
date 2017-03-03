@@ -10,7 +10,6 @@
         <item>reboot</item>
         <item>reboot recovery</item>
         <item>reboot bootloader</item>
-        <item>factory reset</item>
     </string-array>
 
     <string-array name="commands">
@@ -19,7 +18,6 @@
         <item>reboot</item>
         <item>reboot recovery</item>
         <item>reboot bootloader</item>
-        <item>recovery wipe cache</item>
     </string-array>
 
     <string name="tollbar_title">options</string>
@@ -30,7 +28,6 @@
         <item>Reboot the phone?</item>
         <item>Reboot into Recovery?</item>
         <item>Reboot into Bootloader?</item>
-        <item>You are going to perform a Factory Reset. Is it OK?</item>
     </string-array>
 
     <string name="softReboot_command">soft reboot</string>
@@ -38,14 +35,15 @@
     <string name="reboot_command">reboot</string>
     <string name="rebootRecovery_command">reboot into recovery</string>
     <string name="rebootBootloader_command">reboot into bootloader</string>
-    <string name="factoryReset_command">factory reset</string>
 
     <string name="softReboot_message">Quick Reboot the phone?</string>
     <string name="powerOff_message">Turn off the phone?</string>
     <string name="reboot_message">Reboot the phone?</string>
     <string name="rebootRecovery_message">Reboot into Recovery?</string>
     <string name="rebootBootloader_message">Reboot into Bootloader?</string>
-    <string name="factoryReset_message">You are going to perform a Factory Reset. Is it OK?</string>
+
+    <string name="terminate_title">WARNING</string>
+    <string name="terminate_message">Your device, does not seem to be rooted. The application is useless for you. This app will auto-terminate itself!</string>
 
 </resources>
 

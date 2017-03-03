@@ -1,9 +1,13 @@
 package com.sparrowred.advancedbootoptions;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.drawable.TransitionDrawable;
+import android.os.Handler;
 import android.os.Process;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +15,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import java.io.File;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,28 +30,48 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, 0);
-        Boolean isPhoneRooted = sharedpreferences.getBoolean(rooted,false);
-        if(isPhoneRooted){
-            startNewActivity(isPhoneRooted);
-        }
-
+        image = (ImageButton) findViewById(R.id.imageView2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.tollbar_title);
         setSupportActionBar(toolbar);
 
-        image = (ImageButton) findViewById(R.id.imageView2);
+        SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, 0);
+        Boolean isPhoneRooted = sharedpreferences.getBoolean(rooted,false);
+        if(isPhoneRooted){
+            isRooted = checkSu();
+            setPreferences();
+            image.setImageResource(R.drawable.trans_root_on);
+            ((TransitionDrawable)image.getDrawable()).startTransition(3000);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startNewActivity(isRooted);
+                }
+            }, 3000);
+        }
+
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 isRooted = checkSu();
                 if(isRooted){
-                    image.setImageResource(R.drawable.root_true);
+                    //image.setImageResource(R.drawable.root_true);
+                    image.setImageResource(R.drawable.trans_root_on);
+                    ((TransitionDrawable)image.getDrawable()).startTransition(3000);
                 }
                 else{
-                    image.setImageResource(R.drawable.root_false);
+                    //image.setImageResource(R.drawable.root_false);
+                    image.setImageResource(R.drawable.trans_root_off);
+                    ((TransitionDrawable)image.getDrawable()).startTransition(3000);
                 }
-                startNewActivity(isRooted);
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startNewActivity(isRooted);
+                    }
+                }, 3000);
             }
         });
     }
@@ -137,15 +162,29 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else{
-            Toast.makeText(this, "Your phone doesn't seem to be rooted. There is no need to use this app. The app will auto close", Toast.LENGTH_LONG).show();
-            onDestroy();
+            terminateApp();
         }
     }
 
-    public void setPreferences(){
+    private void setPreferences(){
         SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, 0);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putBoolean(rooted, isRooted);
         editor.apply();
+    }
+
+    private void terminateApp(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(R.string.terminate_title);
+        builder.setMessage(R.string.terminate_message);
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                onDestroy();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

@@ -18,7 +18,7 @@
         <ImageButton
             android:layout_width="343dp"
             android:layout_height="187dp"
-            app:srcCompat="@drawable/root_unknown"
+            app:srcCompat="@drawable/trans_root_on"
             android:id="@+id/imageView2"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/rootCheck" />
