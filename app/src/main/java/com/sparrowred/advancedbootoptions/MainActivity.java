@@ -50,30 +50,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }, 3000);
         }
-
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isRooted = checkSu();
-                if(isRooted){
-                    //image.setImageResource(R.drawable.root_true);
-                    image.setImageResource(R.drawable.trans_root_on);
-                    ((TransitionDrawable)image.getDrawable()).startTransition(3000);
-                }
-                else{
-                    //image.setImageResource(R.drawable.root_false);
-                    image.setImageResource(R.drawable.trans_root_off);
-                    ((TransitionDrawable)image.getDrawable()).startTransition(3000);
-                }
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        startNewActivity(isRooted);
+        else {
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    image.setOnClickListener(null);
+                    isRooted = checkSu();
+                    if (isRooted) {
+                        //image.setImageResource(R.drawable.root_true);
+                        image.setImageResource(R.drawable.trans_root_on);
+                        ((TransitionDrawable) image.getDrawable()).startTransition(3000);
+                    } else {
+                        //image.setImageResource(R.drawable.root_false);
+                        image.setImageResource(R.drawable.trans_root_off);
+                        ((TransitionDrawable) image.getDrawable()).startTransition(3000);
                     }
-                }, 3000);
-            }
-        });
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startNewActivity(isRooted);
+                        }
+                    }, 3000);
+                }
+            });
+        }
     }
 
     @Override
